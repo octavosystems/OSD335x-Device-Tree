@@ -1,7 +1,7 @@
 /*
- * Device Tree Source for AM33XX SoC
+ * Device Tree Source for OSD335x SiP
  *
- * Copyright (C) 2012 Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (C) 2018 Octavo Systems LLC - http://www.octavosystems.com/
  *
  * This file is licensed under the terms of the GNU General Public License
  * version 2.  This program is licensed "as is" without any warranty of any
