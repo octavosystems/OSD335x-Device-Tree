@@ -1,4 +1,4 @@
-/*
+/* SPDX-License-Identifier:	GPL-2.0
  * Device Tree Source for OSD335x SiP
  *
  * Copyright (C) 2018 Octavo Systems LLC - http://www.octavosystems.com/
@@ -1348,7 +1348,6 @@
 			AM33XX_IOPAD(0x98c, PIN_INPUT_PULLUP | MUX_MODE0)	/* i2c0_scl.i2c0_scl */
 			>;
 	};
-
 };
 
 &i2c0 {
