@@ -5,7 +5,7 @@
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
  */
- 
+
 /dts-v1/;
 
 #include "osd335x-sm.dtsi"
@@ -514,19 +514,19 @@
 			AM33XX_IOPAD(0x86c, PIN_OUTPUT_PULLDOWN | MUX_MODE7) /* gpmc_a11.GPIO1_27 */
 		>;
 	};
-	
+
 	flash_enable: flash_enable {
 		pinctrl-single,pins = <
 			AM33XX_IOPAD(0x944, PIN_OUTPUT_PULLDOWN | MUX_MODE7) 	/* rmii1_ref_clk.gpio0_29 */
 		>;
 	};
-	
+
 	imu_interrupt: imu_interrupt {
 		pinctrl-single,pins = <
 			AM33XX_IOPAD(0x910, PIN_INPUT_PULLDOWN | MUX_MODE7) 		/* mii1_rx_er.gpio3_2 */
 		>;
 	};
-	
+
 	ethernet_interrupt: ethernet_interrupt{
 		pinctrl-single,pins = <
 			AM33XX_IOPAD(0x908, PIN_INPUT_PULLDOWN | MUX_MODE7) 		/* mii1_col.gpio3_0 */
@@ -574,22 +574,22 @@
 			};
 		};
 	};
-	
+
 	mpu9250: mpu9250@68 {
 	    compatible = "invensense,mpu6050";
 	    reg = <0x68>;
 	    interrupt-parent = <&gpio3>;
-	    interrupts = <2 0x01>; 
+	    interrupts = <2 0x01>;
 	    /*invensense,int_config = <0x10>;
 	    invensense,level_shifter = <0>;
 	    invensense,orientation = [01 00 00 00 01 00 00 00 01];
 	    invensense,sec_slave_type = <0>;
 	    invensense,key = [4e cc 7e eb f6 1e 35 22 00 34 0d 65 32 e9 94 89];*/
     };
-    
-    bmp280@78 {
-    	compatible = "bosch,bmp280";
-    	reg = <0x76>;
+
+	bmp280@78 {
+		compatible = "bosch,bmp280";
+		reg = <0x76>;
     };
 };
 
