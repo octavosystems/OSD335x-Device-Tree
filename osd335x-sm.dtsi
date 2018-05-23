@@ -1,5 +1,5 @@
-/* SPDX-License-Identifier:	GPL-2.0
- * Device Tree Source for OSD335x SiP
+#SPDX-License-Identifier: GPL-2.0
+/* Device Tree Source for OSD335x SiP
  *
  * Copyright (C) 2018 Octavo Systems LLC - http://www.octavosystems.com/
  *
