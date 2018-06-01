@@ -1,4 +1,4 @@
-#SPDX-License-Identifier: GPL-2.0
+//SPDX-License-Identifier: GPL-2.0
 /* Device Tree Source for OSD335x SiP
  *
  * Copyright (C) 2018 Octavo Systems LLC - http://www.octavosystems.com/
@@ -1326,9 +1326,6 @@
 };
 
 /include/ "am33xx-clocks.dtsi"
-
-#include <dt-bindings/mfd/tps65217.h>
-
 
 / {
 	memory@80000000 {
