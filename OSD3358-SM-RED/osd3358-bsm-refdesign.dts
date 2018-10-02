@@ -12,8 +12,6 @@
 
  #include <dt-bindings/display/tda998x.h>
 
- #include "am33xx-pruss-rproc.dtsi"
-
  / {
 
  	leds {
@@ -400,7 +398,7 @@ emmc_pins: pinmux_emmc_pins {
 		/* video-ports = <0x234501>; */
 
 		#sound-dai-cells = <0>;
-		audio-ports = <	AFMT_I2S	0x03>;
+		audio-ports = <	TDA998x_I2S	0x03>;
 
 		ports {
 			port@0 {
