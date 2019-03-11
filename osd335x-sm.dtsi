@@ -12,11 +12,12 @@
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/pinctrl/am33xx.h>
 
-#include "skeleton.dtsi"
-
 / {
         compatible = "oct,osd335x","ti,am33xx";
         interrupt-parent = <&intc>;
+        #address-cells = <1>;
+        #size-cells = <1>;
+        chosen { };
 
         aliases {
         
