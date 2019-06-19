@@ -491,7 +491,7 @@ emmc_pins: pinmux_emmc_pins {
 
 / {
 
-	model = "Octavo OSD335x-SM Reference Design";
+	model = "Octavo Systems OSD3358-SM-RED";
 	compatible = "oct,osd335x-reference-design", "ti,am335x-bone", "ti,am33xx";
 
 	clk_mcasp0_fixed: clk_mcasp0_fixed {
