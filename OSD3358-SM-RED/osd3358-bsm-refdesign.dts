@@ -130,25 +130,7 @@
 	};
 };
 
-&cpsw_emac0 {
-	phy_id = <&davinci_mdio>, <4>;
-	phy-mode = "rgmii-txid";
-};
 
-&mac {
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&cpsw_default>;
-	pinctrl-1 = <&cpsw_sleep>;
-	slaves = <1>;
-	status = "okay";
-};
-
-&davinci_mdio {
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&davinci_mdio_default>;
-	pinctrl-1 = <&davinci_mdio_sleep>;
-	status = "okay";
-};
 
 &tscadc {
 	status = "okay";
@@ -344,7 +326,7 @@ emmc_pins: pinmux_emmc_pins {
 
 	imu_interrupt: imu_interrupt {
 		pinctrl-single,pins = <
-			AM33XX_IOPAD(0x910, PIN_INPUT_PULLDOWN | MUX_MODE7) 		/* mii1_rx_er.gpio3_2 */
+			AM33XX_IOPAD(0x910, PIN_INPUT | MUX_MODE7) 		/* mii1_rx_er.gpio3_2 */
 		>;
 	};
 
@@ -409,22 +391,39 @@ emmc_pins: pinmux_emmc_pins {
 		};
 	};
 
-	mpu9250: mpu9250@68 {
-	    compatible = "invensense,mpu6050";
-	    reg = <0x68>;
-	    interrupt-parent = <&gpio3>;
-	    interrupts = <2 0x01>;
-	    /*invensense,int_config = <0x10>;
-	    invensense,level_shifter = <0>;
-	    invensense,orientation = [01 00 00 00 01 00 00 00 01];
-	    invensense,sec_slave_type = <0>;
-	    invensense,key = [4e cc 7e eb f6 1e 35 22 00 34 0d 65 32 e9 94 89];*/
-    };
+  mpu9150: mpu9150@68 {
+		compatible = "invensense,mpu9150";
+		reg = <0x68>;
+		interrupt-parent = <&gpio3>;
+		interrupts = <2 1>;
+		i2c-gate {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			ax8975@c {
+				compatible = "ak,ak8975";
+				reg = <0x0c>;
+			};
+		};
+		/*invensense,int_config = <0x10>;
+		invensense,level_shifter = <0>;
+		invensense,orientation = [01 00 00 00 01 00 00 00 01];
+		invensense,sec_slave_type = <0>;
+		invensense,key = [4e cc 7e eb f6 1e 35 22 00 34 0d 65 32 e9 94 89];*/
+	};
 
     bmp280@78 {
     	compatible = "bosch,bmp280";
     	reg = <0x76>;
     };
+};
+
+&ocp {
+	imu_int_en: imu_int_en {
+		/*compatible = "bone-pinmux-helper";*/
+		compatible = "ti,omap4-gpio";
+		pinctrl-names = "default";
+		pinctrl-0 = <&imu_interrupt>;
+	};
 };
 
 &i2c2 {
@@ -492,7 +491,7 @@ emmc_pins: pinmux_emmc_pins {
 
 / {
 
-	model = "Octavo Systems OSD335x-SM Reference Design";
+	model = "Octavo OSD335x-SM Reference Design";
 	compatible = "oct,osd335x-reference-design", "ti,am335x-bone", "ti,am33xx";
 
 	clk_mcasp0_fixed: clk_mcasp0_fixed {
