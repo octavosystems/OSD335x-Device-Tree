@@ -77,7 +77,7 @@
         cpu0_opp_table: opp_table0 {
             
             compatible = "operating-points-v2";
-
+            syscon = <&scm_conf>;
             /*
              * The three following nodes are marked with opp-suspend
             * because the can not be enabled simultaneously on a
