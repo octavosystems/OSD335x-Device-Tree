@@ -132,7 +132,7 @@
 
 &cpsw_emac0 {
 	phy_id = <&davinci_mdio>, <4>;
-	phy-mode = "rgmii-txid";
+	phy-mode = "rgmii-id";
 };
 
 &mac {
